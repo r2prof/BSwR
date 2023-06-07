@@ -1,16 +1,77 @@
 #-----------------
 # CH 06 Qualitative Data
 #-----------------
-library(MASS)
+library(MASS)   # load the MASS package 
 head(painters)
 
-# c06-s01
-school = painters$School
-school.freq = table(school)
+# The last School column contains the information of school classification of the painters. The schools are 
+# named as A, B, ..., etc, and the School variable is qualitative.
+painters$School
 
-school.freq
+# Frequency Distribution
+#--------------------------
 
+# The frequency distribution of a data variable is a summary of the data occurrence in a collection of 
+# non-overlapping categories.
+
+# Example
+# In the data set painters, the frequency distribution of the School variable is a summary of the number 
+# of painters in each school.
+
+# Example: Find the frequency distribution of the painter schools in the data set painters.
+# Solution: We apply the table function to compute the frequency distribution of the School variable.
+school <- painters$School
+school
+(school.freq  <-  table(school))
+
+# We apply the cbind function to print the result in column format.
 cbind(school.freq)
+
+# Relative Frequency Distribution of Qualitative Data
+#------------------------------------------------------
+# The relative frequency distribution of a data variable is a summary of the frequency proportion in a 
+# collection of non-overlapping categories.
+
+# In the data set painters, the relative frequency distribution of the School variable is a summary of the proportion 
+# of painters in each school.
+
+# Problem: Find the relative frequency distribution of the painter schools in the data set painters.
+# Solution: # We first apply the table function to compute the frequency distribution of the School variable.
+
+school = painters$School      # the painter schools 
+school.freq = table(school)   # apply the table function
+
+# Then we find the sample size of painters with the nrow function, and divide the frequency distribution with it. 
+# Therefore the relative frequency distribution is:
+
+(school.relfreq = school.freq / nrow(painters))
+
+# options(digits=1), is used in R programming language to set the number of decimal places displayed when printing 
+# numeric values. By setting digits to 1, you are instructing R to display only one decimal place for numeric values.
+options(digits=1) 
+cbind(school.relfreq) 
+
+options(digits=7)    # restore the old option
+# Please note that changing the digits option using options(digits=1) affects the display of numeric values globally 
+# in the R session. If you want to reset it to the default behavior, you can use options(digits=7) or any other 
+# desired number of decimal places.
+
+# Bar Graph
+#--------------
+# A bar graph of a qualitative data sample consists of vertical parallel bars that shows the frequency distribution 
+# graphically.
+
+# Example: In the data set painters, the bar graph of the School variable is a collection of vertical bars 
+# showing the number of painters in each school.
+
+# Problem: Find the bar graph of the painter schools in the data set painters.
+# Solution: 
+barplot(school.freq)         # apply the barplot function
+
+# To colorize the bar graph, we select a color palette and set it in the col argument of barplot.
+colors = c("red", "yellow", "green", "violet", "orange", "blue", "pink", "cyan") 
+barplot(school.freq, col=colors)
+
 
 # Ex 1
 comp = painters$Composition
