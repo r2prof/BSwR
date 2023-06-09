@@ -1,5 +1,5 @@
 ########### Introductory Statistics with R #####################
-# 
+# Peter Delgaard
 # Chapter - 01 - Basics
 
 #***********************Feb16-2020*****************************
@@ -32,6 +32,8 @@ sum(weight)
 sum(weight)/length(weight)
 
 xbar <- sum(weight)/length(weight)
+xbar
+weight
 weight - xbar
 (weight - xbar)^2
 sum((weight - xbar)^2)
@@ -44,11 +46,13 @@ sd(weight)
 # As a slightly more complicated example of what R can do, consider the
 # following: The rule of thumb is that the BMI for a normal-weight individual
 # should be between 20 and 25, and we want to know if our data
-# deviate systematically from that. You might use a one-sample t test to assess
-# whether the six persons' BMI can be assumed to have mean 22.5 given
-# that they come from a normal distribution. To this end, you can use the
-# function t.test. (You might not know the theory of the t test yet. The
-# example is included here mainly to give some indication of what "real"
+# deviate systematically from that. 
+
+# You might use a one-sample t test to assess whether the six persons' BMI can be 
+# assumed to have mean 22.5 given that they come from a normal distribution. 
+
+# To this end, you can use the function t.test. (You might not know the theory of the 
+# t test yet. The example is included here mainly to give some indication of what "real"
 # statistical output looks like. A thorough description of t.test is given in
 # Chapter 5.)
 
@@ -63,7 +67,7 @@ plot(height,weight)
 # of the person's height, thus giving you a single number as an
 # indication of whether someone is overweight and by how much. Since
 # a normal BMI should be about 22.5, you would expect that weight = 
-# 22.5 × height^2. Accordingly, you can superimpose a curve of expected
+# 22.5 ? height^2. Accordingly, you can superimpose a curve of expected
 # weights at BMI 22.5 on the figure:
 
 hh <- c(1.65, 1.70, 1.75, 1.80, 1.85, 1.90)
@@ -119,6 +123,7 @@ seq(4,10,2)
 # rep ("replicate")
 
 oops <- c(7,9,13)
+oops
 rep(oops,3)
 
 rep(oops,1:3)
@@ -186,9 +191,10 @@ as.numeric(fpain)
 # Lists
 # It is sometimes useful to combine a collection of objects into a larger
 # composite object. This can be done using lists.
+
 # You can construct a list from its components with the function list.
 # As an example, consider a set of data from Altman (1991, p. 183) concerning
-# pre- and postmenstrual energy intake in a group of women. We can
+# pre and postmenstrual energy intake in a group of women. We can
 # place these data in two vectors as follows:
 
 intake.pre <- c(5260,5470,5640,6180,6390,
@@ -268,12 +274,17 @@ intake.pre[-c(3,5,7)]
 # as data from the males or the prepubertal or those with chronic diseases,
 # etc. This can be done simply by inserting a relational expression instead
 # of the index,
-
+d
 intake.post[intake.pre > 7000]
 
-# Yielding the postmenstrual energy intake for the four women who had an
-# energy intake above 7000 kJ premenstrually.
 
+# In summary, the code selects elements from the "intake.post" vector where the corresponding 
+# element in the "intake.pre" vector is greater than 7000. It effectively filters the "intake.post" 
+# data based on a condition related to the "intake.pre" data. 
+
+
+# Yielding the postmenstrual energy intake for the four women who had an energy intake above 7000 kJ 
+# premenstrually.
 
 # For instance, we find the postmenstrual intake for women with a premenstrual intake between
 # 7000 and 8000 kJ with
@@ -318,6 +329,7 @@ d[5,]
 
 # Gives all measurements for woman no. 5. Notice that the comma in d[5,]
 # is required; without the comma, for example d[2], you get the data frame
+d
 d[2]
 
 # consisting of the second column of d (that is, more like d[,2], which is the
@@ -364,9 +376,9 @@ tail(d)
 library(ISwR)
 
 # Then attach the data
-
 energy
-
+attach(energy)
+energy
 # This is a convenient format since it generalizes easily to data classified
 # by multiple criteria. However, sometimes it is desirable to have data in a
 # separate vector for each group. Fortunately, it is easy to extract these from
@@ -382,7 +394,6 @@ exp.obese
 
 l <- split(energy$expend, energy$stature)
 l
-
 
 # A common application of loops is to apply a function to each element of
 # a set of values or vectors and collect the results in a single structure. In

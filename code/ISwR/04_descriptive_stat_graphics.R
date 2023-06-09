@@ -1,4 +1,4 @@
-# ********************Chap-04-Descriptive statistics and graphics**********
+# ********************CH 04 - Descriptive statistics and graphics**********
 x <- rnorm(50)
 mean(x)
 sd(x)
@@ -17,6 +17,7 @@ quantile(x,pvec)
 # Attempting to calculate the mean of igf1 reveals a problem.
 library(ISwR)
 attach(juul)
+View(juul)
 mean(igf1)
 
 # R will not skip missing values unless explicitly requested to do so. The
@@ -106,9 +107,9 @@ boxplot(log(IgM))
 par(mfrow=c(1,1))
 
 # A layout with two plots side by side is specified using the mfrow graphical
-# parameter. It should be read as "multif rame, rowwise, 1 × 2 layout".
+# parameter. It should be read as "multif rame, rowwise, 1 ? 2 layout".
 # Individual plots are organized in one row and two columns. As you might
-# guess, there is also an mfcol parameter to plot columnwise. In a 2×2 layout,
+# guess, there is also an mfcol parameter to plot columnwise. In a 2?2 layout,
 # the difference is whether plot no. 2 is drawn in the top right or bottom
 # left corner.
 # Notice that it is necessary to reset the layout parameter to c(1,1) at the
