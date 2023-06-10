@@ -8,7 +8,7 @@ sample(1:40,5)
 
 sample(40,5) 
 
-# would suffice sincea single number is interpreted to represent the length 
+# would suffice since a single number is interpreted to represent the length 
 # of a sequence of integers
 
 # Notice that the default behaviour of sample is sampling without replacement.
@@ -21,16 +21,16 @@ sample(40,5)
 # of a die. So, for instance, to simulate 10 coin tosses we could write
 sample(c("H","T"), 10, replace=T)
 
-# You can simulate data with nonequal probabilities for the
+# You can simulate data with non-equal probabilities for the
 # outcomes (say, a 90% chance of success) by using the prob argument to
 # sample, as in
 sample(c("succ", "fail"), 10, replace=T, prob=c(0.9, 0.1))
 
-# Probability calculations and combinatorics
+# Probability calculations and combinations
 # Let us return to the case of sampling without replacement, specifically
 # sample(1:40, 5). The probability of obtaining a given number as the
 # first one of the sample should be 1/40, the next one 1/39, and so forth. The
-# probability of a given sample should then be 1/(40 × 39 × 38 × 37 × 36).
+# probability of a given sample should then be 1/(40 ? 39 ? 38 ? 37 ? 36).
 # In R, use the prod function, which calculates the product of a vector of
 # numbers
 
@@ -38,6 +38,7 @@ sample(c("succ", "fail"), 10, replace=T, prob=c(0.9, 0.1))
 
 # Density Functions
 x <- seq(-3,3,0.1)
+x
 plot(x,dnorm(x),type="l")
 
 # An alternative way of creating the plot is to use curve as follows:

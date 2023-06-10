@@ -1,5 +1,6 @@
 # ********************CH 04 - Descriptive statistics and graphics**********
 x <- rnorm(50)
+x
 mean(x)
 sd(x)
 var(x)
@@ -28,7 +29,7 @@ mean(igf1)
 mean(igf1,na.rm=T)
 
 # There is one slightly annoying exception: The length function will not
-# understand na.rm, so we cannot use it to count the number of nonmissing
+# understand na.rm, so we cannot use it to count the number of non-missing
 # measurements of igf1. However, you can use
 sum(!is.na(igf1))
 summary(igf1)
@@ -83,7 +84,7 @@ juul
 # obtain a straight line if data come from a normal distribution with any
 # mean and standard deviation.
 
-# Creating such a plot is slightly complicated. Fortunately, there is a builtin
+# Creating such a plot is slightly complicated. Fortunately, there is a built in
 # function for doing it, qqnorm. The result of using it can be seen in
 # Figure 4.4. You only have to write
 
